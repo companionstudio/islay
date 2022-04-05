@@ -6,3 +6,4 @@ tmp/
 spec/dummy/
 db/schema.rb
 .DS_Store
+.tool-versions
