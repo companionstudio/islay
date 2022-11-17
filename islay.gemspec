@@ -41,7 +41,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rmagick",                       "~> 4.2.4"
   s.add_dependency "mime-types",                    '~> 3.2', '>= 3.2.2'
   s.add_dependency "fog-aws",                       "~> 1.4.1"
-  s.add_dependency "girl_friday",                   "~> 0.9.7"
   s.add_dependency "streamio-ffmpeg",               "~> 0.8.5"
   s.add_dependency "zipruby",                       "~> 0.3.6"
   s.add_dependency "jquery-rails",                  "~> 4.3.3"
