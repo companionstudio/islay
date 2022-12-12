@@ -5,6 +5,7 @@ require 'islay/form_builder/date_picker'
 require 'islay/form_builder/time_picker'
 require 'islay/form_builder/color_picker'
 require 'islay/form_builder/boolean_depressed'
+require 'islay/form_builder/money_input'
 
 module Islay
   # An extension of the simple_form builder.

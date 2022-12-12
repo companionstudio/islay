@@ -1,34 +1,34 @@
-%h3 Your recent activity
-
-- if @user_logs.empty?
-  %table#user-logs
-    %tbody
-      %tr.empty
-        %td.note Items you have worked on will appear here.
-
-- else
-
-  %table#user-logs
-    %thead
-      %tr
-        %th Event
-        %th Item
-        %th At
-
-    %tbody
-      - @user_logs.each do |log|
-        %tr
-          %td= log.action.humanize
-          %td
-            - begin
-              = link_to("#{log.description}".html_safe, path(*log.url_params))
-            - rescue ArgumentError
-              = "#{log}".html_safe
-          %td.meta
-            %span.time= log.created_at.iso8601
+-# %h3 Your recent activity
+-#
+-# - if @user_logs.empty?
+-#   %table#user-logs
+-#     %tbody
+-#       %tr.empty
+-#         %td.note Items you have worked on will appear here.
+-#
+-# - else
+-#
+-#   %table#user-logs
+-#     %thead
+-#       %tr
+-#         %th Event
+-#         %th Item
+-#         %th At
+-#
+-#     %tbody
+-#       - @user_logs.each do |log|
+-#         %tr
+-#           %td= log.action.humanize
+-#           %td
+-#             - begin
+-#               = link_to("#{log.description}".html_safe, path(*log.url_params))
+-#             - rescue ArgumentError
+-#               = "#{log}".html_safe
+-#           %td.meta
+-#             %span.time= log.created_at.iso8601
 
 - if can? :manage, :all
-  %h3 Site activity
+  %h3 Recent activity
 
   %table#activity-logs
     %thead

@@ -326,7 +326,7 @@ module Islay
       # @param [nil, true, false] root
       # @return [true, false]
       def current_entry?(url, root)
-        (root and request.original_url == url) or request.original_url.match(%r{^#{url}})
+        (root and request.original_url == url) or (!root and request.original_url.match(%r{^#{url}}))
       end
 
       # This method is used to capture the main content for a page and wrap it
