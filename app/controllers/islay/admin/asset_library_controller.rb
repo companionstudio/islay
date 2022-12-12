@@ -17,6 +17,39 @@ class Islay::Admin::AssetLibraryController < Islay::Admin::ApplicationController
       Asset.latest
     end
 
-    render :layout => false
+    render :json => albums_and_assets_response
   end
+
+  private
+
+  def albums_and_assets_response
+    albums = @albums.map do |album|
+      {
+        id: album.id,
+        name: album.name,
+        count: album.assets_count
+      }
+    end
+
+    assets = @assets.map do |asset|
+      {
+        id:  asset.id
+        album_id: asset.asset_group_id
+        name:  asset.name
+        kind:  asset.kind
+        friendly_kind:  asset.friendly_kind
+        extension:  asset.extension
+        url:  asset.previews.url(:thumb_medium)
+        previewable: asset.preview?
+        latest: asset.latest?
+      }
+    end
+
+    {
+      albums: albums,
+      assets: assets
+    }
+  end
+
+
 end
