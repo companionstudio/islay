@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   validates_length_of :password, within: USER_PASSWORD_LENGTH_MIN..USER_PASSWORD_LENGTH_MAX, if: :password_required?
 
-  include PgSearch
+  include PgSearch::Model
   multisearchable :against => [:name, :email]
 
   roles :admin
@@ -23,10 +23,10 @@ class User < ActiveRecord::Base
 
   attr_accessor :password_confirmation
 
-  metadata(:metadata) do
-    integer :creator_id, default: nil
-    integer :updater_id, default: nil
-  end
+  # metadata(:metadata) do
+  #   integer :creator_id, default: nil
+  #   integer :updater_id, default: nil
+  # end
 
   # Returns the system user. This is an always-present, immutable user used for
   # logging actions made by Islay e.g. migrations, background tasks etc.

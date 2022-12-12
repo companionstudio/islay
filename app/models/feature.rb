@@ -1,5 +1,5 @@
 class Feature < ActiveRecord::Base
-  include PgSearch
+  include PgSearch::Model
   multisearchable :against => [:title]
 
   belongs_to :page

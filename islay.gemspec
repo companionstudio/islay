@@ -30,12 +30,13 @@ Gem::Specification.new do |s|
   s.add_dependency 'cancancan',                     '~> 2.2'
   s.add_dependency "responders",                    "~> 3.0.1"
   s.add_dependency "simple_form",                   ">= 5.0.0"
+  s.add_dependency 'hamlit',                        '~> 3.0', '>= 3.0.3'
   s.add_dependency 'hamlit-rails',                  '~> 0.2.0'
   s.add_dependency 'cells-hamlit',                  '~> 0.2.0'
   s.add_dependency "sass-rails",                    "~> 5.0.7"
   s.add_dependency "compass-rails",                 "~> 3.1.0"
   s.add_dependency "pg",                            "~> 1.3.5"
-  s.add_dependency "pg_search",                     "~> 0.7.0"
+  s.add_dependency 'pg_search',                     '~> 2.3', '>= 2.3.6'
   s.add_dependency 'friendly_id',                   "~> 5.2.1"
   s.add_dependency "inherited_resources",           "~> 1.9"
   s.add_dependency "rmagick",                       "~> 4.2.4"
@@ -52,6 +53,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'bootsnap',                      '~> 1.3', '>= 1.3.1'
   s.add_dependency 'sprockets-rails',               '~> 3.2', '>= 3.2.1'
   s.add_dependency 'loofah',                        '>= 2.3.1'
+  s.add_dependency 'net-http',                      '~> 0.1.1'
 
   s.add_development_dependency 'listen'
 end
