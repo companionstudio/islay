@@ -21,14 +21,14 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails",                         "~> 5.2", ">= 5.2.4.2"
+  s.add_dependency "rails",                         "~> 6"
   s.add_dependency 'rails-observers',               "~> 0.1.5"
   s.add_dependency 'cells-rails',                   '~> 0.0.9'
   s.add_dependency "nokogiri",                      '~> 1.10', '>= 1.10.4'
   s.add_dependency "devise",                        '~> 4.7', '>= 4.7.1'
   s.add_dependency "devise_invitable",              "~> 2.0.0"
   s.add_dependency 'cancancan',                     '~> 2.2'
-  s.add_dependency "responders",                    "~> 2.4.0"
+  s.add_dependency "responders",                    "~> 3.0.1"
   s.add_dependency "simple_form",                   ">= 5.0.0"
   s.add_dependency 'hamlit-rails',                  '~> 0.2.0'
   s.add_dependency 'cells-hamlit',                  '~> 0.2.0'
