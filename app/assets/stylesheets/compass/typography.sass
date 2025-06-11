@@ -1,0 +1,68 @@
+// Compass typography replacement
+// Basic typography mixins and utilities
+
+// Text-related mixins
+=adjust-font-size-to($font-size, $lines: lines-for-font-size($font-size))
+  font-size: $font-size
+  line-height: $lines * $base-line-height
+
+=ellipsis($no-wrap: true)
+  @if $no-wrap
+    white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+=word-wrap($value: break-word)
+  word-wrap: $value
+  -ms-word-wrap: $value
+
+=hyphens($value: auto)
+  -webkit-hyphens: $value
+  -moz-hyphens: $value
+  -ms-hyphens: $value
+  hyphens: $value
+
+// Link helpers
+=link-colors($normal, $hover: false, $active: false, $visited: false, $focus: false)
+  color: $normal
+  @if $visited
+    &:visited
+      color: $visited
+  @if $focus
+    &:focus
+      color: $focus
+  @if $hover
+    &:hover
+      color: $hover
+  @if $active
+    &:active
+      color: $active
+
+=hover-link
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+=unstyled-link
+  color: inherit
+  text-decoration: inherit
+  &:hover
+    color: inherit
+    text-decoration: inherit
+
+// Text decoration
+=no-decoration
+  text-decoration: none
+
+=force-wrap
+  white-space: pre-wrap
+  word-wrap: break-word
+
+// Typography utilities
+@function lines-for-font-size($font-size)
+  @return ceil($font-size / $base-line-height)
+
+// Default variables (can be overridden)
+$base-line-height: 1.5 !default
+$default-font-family: Arial, sans-serif !default
+$default-font-weight: normal !default

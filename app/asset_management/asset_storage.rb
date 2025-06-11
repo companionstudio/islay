@@ -17,7 +17,7 @@ class AssetStorage
   # @return Array<String>
   def self.store!(dir, key, paths)
     bucket = get_bucket
-
+    binding.pry
     paths.map do |path|
       File.join(dir, key, File.basename(path)).tap do |l|
         body = File.open(path)
@@ -56,6 +56,7 @@ class AssetStorage
 
     File.open(full_path, 'wb+') do |f|
       file = get_bucket.files.get(File.join(dir, key, path))
+      binding.pry
       f.write(file.body)
     end
 

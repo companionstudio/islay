@@ -1,0 +1,161 @@
+// Compass CSS3 replacement
+// Common CSS3 mixins
+
+// Border radius
+@mixin border-radius($radius...)
+  border-radius: $radius
+
+@mixin border-top-left-radius($radius)
+  border-top-left-radius: $radius
+
+@mixin border-top-right-radius($radius)
+  border-top-right-radius: $radius
+
+@mixin border-bottom-left-radius($radius)
+  border-bottom-left-radius: $radius
+
+@mixin border-bottom-right-radius($radius)
+  border-bottom-right-radius: $radius
+
+@mixin border-left-radius($radius)
+  border-top-left-radius: $radius
+  border-bottom-left-radius: $radius
+
+@mixin border-right-radius($radius)
+  border-top-right-radius: $radius
+  border-bottom-right-radius: $radius
+
+@mixin border-top-radius($radius)
+  border-top-left-radius: $radius
+  border-top-right-radius: $radius
+
+@mixin border-bottom-radius($radius)
+  border-bottom-left-radius: $radius
+  border-bottom-right-radius: $radius
+
+// Box shadow
+@mixin box-shadow($shadow...)
+  box-shadow: $shadow
+
+// Text shadow
+@mixin text-shadow($shadow...)
+  text-shadow: $shadow
+
+// Transitions
+@mixin transition($transition...)
+  transition: $transition
+
+@mixin transition-property($property...)
+  transition-property: $property
+
+@mixin transition-duration($duration...)
+  transition-duration: $duration
+
+@mixin transition-timing-function($timing...)
+  transition-timing-function: $timing
+
+@mixin transition-delay($delay...)
+  transition-delay: $delay
+
+// Transforms
+@mixin transform($transform...)
+  transform: $transform
+
+@mixin transform-origin($origin...)
+  transform-origin: $origin
+
+@mixin scale($scale-x, $scale-y: $scale-x)
+  transform: scale($scale-x, $scale-y)
+
+@mixin rotate($angle)
+  transform: rotate($angle)
+
+@mixin translate($translate-x, $translate-y: 0)
+  transform: translate($translate-x, $translate-y)
+
+@mixin translate3d($translate-x, $translate-y, $translate-z)
+  transform: translate3d($translate-x, $translate-y, $translate-z)
+
+@mixin translateX($translate-x)
+  transform: translateX($translate-x)
+
+@mixin translateY($translate-y)
+  transform: translateY($translate-y)
+
+@mixin translateZ($translate-z)
+  transform: translateZ($translate-z)
+
+// Background gradients
+@mixin background-image($image...)
+  background-image: $image
+
+@mixin linear-gradient($direction, $color-stops...)
+  background: linear-gradient($direction, $color-stops)
+
+// Box sizing
+@mixin box-sizing($value)
+  box-sizing: $value
+
+// Appearance
+@mixin appearance($value)
+  appearance: $value
+
+// User select
+@mixin user-select($value)
+  user-select: $value
+
+// Opacity
+@mixin opacity($value)
+  opacity: $value
+
+// Background size
+@mixin background-size($size...)
+  background-size: $size
+
+// Background origin
+@mixin background-origin($origin...)
+  background-origin: $origin
+
+// Background clip
+@mixin background-clip($clip...)
+  background-clip: $clip
+
+// Flexbox
+@mixin display-flex
+  display: flex
+
+@mixin flex($flex...)
+  flex: $flex
+
+@mixin flex-direction($direction)
+  flex-direction: $direction
+
+@mixin flex-wrap($wrap)
+  flex-wrap: $wrap
+
+@mixin flex-flow($flow...)
+  flex-flow: $flow
+
+@mixin justify-content($justify)
+  justify-content: $justify
+
+@mixin align-items($align)
+  align-items: $align
+
+@mixin align-content($align)
+  align-content: $align
+
+@mixin align-self($align)
+  align-self: $align
+
+@mixin order($order)
+  order: $order
+
+@mixin flex-grow($grow)
+  flex-grow: $grow
+
+@mixin flex-shrink($shrink)
+  flex-shrink: $shrink
+
+@mixin flex-basis($basis)
+  flex-basis: $basis

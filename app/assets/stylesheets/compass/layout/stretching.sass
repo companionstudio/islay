@@ -1,0 +1,19 @@
+// Compass layout/stretching replacement
+// Stretch an element to the full width/height of its positioned parent
+
+=stretch-x($left: 0, $right: 0)
+  position: absolute
+  left: $left
+  right: $right
+
+=stretch-y($top: 0, $bottom: 0)
+  position: absolute
+  top: $top
+  bottom: $bottom
+
+=stretch($offset-top: 0, $offset-right: 0, $offset-bottom: 0, $offset-left: 0)
+  position: absolute
+  top: $offset-top
+  right: $offset-right
+  bottom: $offset-bottom
+  left: $offset-left

@@ -75,7 +75,7 @@ module Islay
     end
 
     def persist!(record)
-      if record.update_attributes(params[resource_class[:name]].permit!)
+      if record.update(params[resource_class[:name]].permit!)
         redirect_to(redirect_for(record))
       else
         dependencies

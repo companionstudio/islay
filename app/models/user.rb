@@ -24,8 +24,8 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation
 
   metadata(:metadata) do
-    integer :creator_id, default: nil
-    integer :updater_id, default: nil
+    # integer :creator_id, default: nil
+    # integer :updater_id, default: nil
   end
 
   # Returns the system user. This is an always-present, immutable user used for

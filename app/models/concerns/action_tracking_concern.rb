@@ -11,8 +11,8 @@ module ActionTrackingConcern
     has_many :user_action_logs, as: :target
 
     before_save :update_user_ids
-    belongs_to :creator, :class_name => 'User'
-    belongs_to :updater, :class_name => 'User'
+    belongs_to :creator, :class_name => 'User', optional: true
+    belongs_to :updater, :class_name => 'User', optional: true
 
     User.track_class(self)
 

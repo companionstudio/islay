@@ -51,7 +51,9 @@ class AssetWorker
       data[:error] = nil
       @asset.update_attributes(data)
     rescue => e
-      @asset.update_attributes(:status => 'errored', :error => e.to_s)
+      binding.pry
+      # @asset.update_attributes(:status => 'errored', :error => e.to_s)
+      raise e
     end
   end
 end

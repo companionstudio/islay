@@ -26,7 +26,10 @@
         - @asset.metadata.each do |k, v|
           %li
             %span.key= k.humanize
-            %span.value= v
+            - if k.include? 'url'
+              %a.value{href: v}= v
+            - else
+              %span.value= v
 
     = render :partial => "#{@asset.friendly_kind.downcase}_metadata"
 
