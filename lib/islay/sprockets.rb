@@ -18,7 +18,7 @@ module Islay
       app.config.assets.paths << File.expand_path("../../../app/assets/fonts", __FILE__)
 
       # Generate import statements for extension admin styles
-      admin_styles = entries.select {|n, e| e.admin_styles?}.keys.map {|k| "@import #{k.to_s.downcase}/admin/#{k.to_s.downcase}"}.join("\n")
+      admin_styles = entries.select {|n, e| e.admin_styles?}.keys.map {|k| "@import '#{k.to_s.downcase}/admin/#{k.to_s.downcase}'"}.join("\n")
 
       app.config.assets.configure do |env|
         extension_style_preprocessor = -> (input) do
