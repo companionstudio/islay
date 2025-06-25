@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency "simple_form",                   "~> 5.3"
   s.add_dependency 'hamlit-rails',                  '~> 0.2.3'
   s.add_dependency 'cells-hamlit',                  '~> 0.2.0'
-  s.add_dependency "sass-rails",                    "~> 6.0"
+  s.add_dependency 'dartsass-sprockets',            '~> 3.2', '>= 3.2.1'
   # s.add_dependency "compass-rails",                 "~> 4.0"
   s.add_dependency "pg",                            "~> 1.5"
   s.add_dependency "pg_search",                     "~> 2.3"
