@@ -1,9 +1,16 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../fonts" as *
+@use "../../../compass/css3" as *
+@use "sass:color"
+
 #activity-logs,
 #user-logs
   a
-    +border-radius(0.2em)
-    background-color: $light-grey + 20
-    border: 1px solid $light-grey - 15
+    border-radius: 0.2em
+    background-color: color.adjust($light-grey, $lightness: 20%)
+    border: 1px solid color.adjust($light-grey, $lightness: -15%)
     padding: 0.5em
     color: inherit !important
     text-decoration: none

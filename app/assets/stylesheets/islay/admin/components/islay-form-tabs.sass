@@ -1,3 +1,9 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../type" as *
+@use "../../../compass/css3" as *
+
 /* -------------------------------------------------------------------------- */
 /* FORM TABS
 /* -------------------------------------------------------------------------- */
@@ -33,8 +39,8 @@
       display: inline-block
 
   a
-    +transition-property(background, color, border)
-    +transition-duration($duration-quick)
+    transition-property: background, color, border
+    transition-duration: $duration-quick
     +pos-relative(false, false, -1px, false)
     color: #666
     display: block
@@ -46,7 +52,7 @@
       color: #111
 
     +for-tablet
-      +border-radius(0.2rem 0.2rem 0 0)
+      border-radius: 0.2rem 0.2rem 0 0
       background-color: rgba(#000, 0.03)
       background-image: linear-gradient(top, rgba(#000, 0.00), rgba(#000, 0.00) 50%, rgba(#000, 0.05) 100%)
       border-bottom: 0
@@ -85,7 +91,7 @@
 
     &:before
       $has-errors-alert-dimension: 1.25rem
-      +border-radius(50%)
+      border-radius: 50%
       background-color: $error-color
       content: '!'
       height: $has-errors-alert-dimension
@@ -100,7 +106,7 @@
 
     &:before
       $has-errors-alert-dimension: 1.25rem
-      +border-radius(50%)
+      border-radius: 50%
       background-color: #4FC29D
       content: attr(data-has-notifications)
       height: $has-errors-alert-dimension

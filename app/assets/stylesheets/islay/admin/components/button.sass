@@ -1,3 +1,9 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../fonts" as *
+@use "sass:color"
+
 /* -------------------------------------------------------------------------- */
 /* BUTTONS
 /* Button face colors:
@@ -8,15 +14,11 @@
 /* $button-negative-color: #C42217
 /* -------------------------------------------------------------------------- */
 
-%button-reverse
-  background: $button-positive-color
-  color: #FFF
-
 a.button,
 button
-  +border-radius(1.25rem)
-  +transition-property(background, color)
-  +transition-duration($duration-quick)
+  border-radius: 1.25rem
+  transition-property: background, color
+  transition-duration: $duration-quick
   background-color: #FFF
   border: 1px solid $light-grey
   color: $button-text-color
@@ -34,7 +36,7 @@ button
   &:focus
     outline: none
     text-decoration: none
-    +box-shadow(0 0 0 0.2rem rgba(#000, 0.1))
+    box-shadow: 0 0 0 0.2rem rgba(#000, 0.1)
 
   &:before
     font-family: icons
@@ -67,15 +69,15 @@ button.save,
 button.save
   background-color: $button-positive-color
   font-size: 1em
-  border-color: darken($button-positive-color, 20)
+  border-color: color.adjust($button-positive-color, $lightness: -20%)
 
 .button.delete
   background-color: $button-negative-color
-  border-color: darken($button-negative-color, 20)
+  border-color: color.adjust($button-negative-color, $lightness: -20%)
 
 .button.edit
   background-color: $button-primary-color
-  border-color: darken($button-primary-color, 20)
+  border-color: color.adjust($button-primary-color, $lightness: -20%)
 
 .button.cancel
   background-color: #FFF
@@ -83,7 +85,7 @@ button.save
   color: #333
 
 .button.is-disabled
-  +opacity(0.4)
+  opacity: 0.4
   cursor: not-allowed
   pointer-events: none
 

@@ -1,9 +1,11 @@
-$layout-header-height: 6rem
-$nav-color: #333
-$nav-foreground-color: #EEE
-$nav-width: 12rem
-$collapsed-nav-width: 2.5rem
-$expanded-nav-width: $nav-width * 2
+@use "config" as *
+@use "compass/typography" as * 
+@use "utilities" as *
+@use "media" as *
+@use "type" as *
+@use "typography" as *
+@use "fonts" as *
+@use "sass:color"
 
 /* -------------------------------------------------------------------------- */
 /* BODY SIZING
@@ -41,7 +43,7 @@ body
   z-index: 2
 
   &.is-pageable
-    +display-flex
+    display: flex
     justify-content: space-between
 
     .button, button
@@ -57,7 +59,7 @@ body
     width: 100%
 
   .button[rel]
-    +border-radius(0)
+    border-radius: 0
     background: transparent
     border: 0
     display: block
@@ -92,8 +94,8 @@ body
 /* HEADER
 /* -------------------------------------------------------------------------- */
 .islay-layout-header
-  +box-sizing(border-box)
-  background-color: darken($nav-color, 8)
+  box-sizing: border-box
+  background-color: color.adjust($nav-color, $lightness: -8%)
   color: $light-grey
   height: $layout-header-height
   left: 0
@@ -141,8 +143,8 @@ body
     display: none
 
   .value
-    +border-radius(0.25em)
-    +background-image($dimension-dished)
+    border-radius: 0.25em
+    background-image: $dimension-dished
     padding: 0.25rem 0.6rem 0.2rem
     margin: 0 0 0.2rem 0
 
@@ -175,7 +177,7 @@ body
       background: $link-color
 
   i
-    text-align-center
+    text-align: center
     width: 1.1em
     font-size: 1.6em
     display: inline-block !important
@@ -188,7 +190,7 @@ body
 /* To be displayed in at the top of record overviews and forms.
 /* -------------------------------------------------------------------------- */
 .islay-record-name
-  +box-sizing(border-box)
+  box-sizing: border-box
   padding: 1.6em 0 1.4em $layout-gutter + 2rem
   position: relative
   width: 100%
@@ -274,18 +276,18 @@ body
 
   .move-up
     +icon-caret-up
-    +border-top-left-radius(0)
-    +border-bottom-left-radius(0)
-    border-left-color: lighten($button-secondary-color, 20)
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+    border-left-color: color.adjust($button-secondary-color, $lightness: 20%)
 
   .move-down
     +icon-caret-down
-    +border-top-right-radius(0)
-    +border-bottom-right-radius(0)
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
     border-left-width: 0
 
 .selection-controls
-  +background-image(linear-gradient(lighten($selected-background-color, 50), lighten($selected-background-color, 35)))
+  background-image: linear-gradient(color.adjust($selected-background-color, $lightness: 50%), color.adjust($selected-background-color, $lightness: 35%))
 
   .position-controls
     float: left
@@ -317,7 +319,7 @@ body
 /* For statuses and counts.
 /* -------------------------------------------------------------------------- */
 span.indicator
-  +border-radius(0.25rem)
+  border-radius: 0.25rem
   text-transform: uppercase
   background-color: $mid-grey
   color: white
@@ -368,7 +370,7 @@ span.indicator
 /* PAGINATION
 /* -------------------------------------------------------------------------- */
 #pagination
-  +display-flex
+  display: flex
 
   &:before
     content: 'Page'
@@ -386,7 +388,7 @@ span.indicator
 
   a
     +unstyled-link
-    +border-radius(0)
+    border-radius: 0
     background: transparent
     border: 0
     cursor: pointer
@@ -422,7 +424,7 @@ span.indicator
       text-align: center
 
     a
-      color: darken($neutral-color, 40)
+      color: color.adjust($neutral-color, $lightness: -40%)
       cursor: default
 
   .current-false
@@ -458,7 +460,7 @@ span.indicator
 #tag-cloud a,
 .tag
   +unstyled-link
-  +border-radius(0.3em)
+  border-radius: 0.3em
   +type-extra-small
   background-color: $tag-color
   border: 1px solid $tag-border-color
@@ -472,7 +474,7 @@ span.indicator
 
 .processing-marker
   +animate(spin)
-  +border-radius(50%)
+  border-radius: 50%
   display: block
   width: 1.3em
   height: 1.3em

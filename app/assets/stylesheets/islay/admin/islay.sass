@@ -1,29 +1,29 @@
 @charset "UTF-8"
 
-@import "compass/reset"
-@import "compass"
+@use "compass/reset"
+@use "compass"
 
-@import "config"
+@use "config" as *
 
-@import "type"
-@import "media"
-@import "utilities"
-@import "fonts"
+@use "type"
+@use "media"
+@use "utilities"
+@use "fonts" as *
 
 // Do view the grid and other debugging, uncomment the line below
-// @import "debug"
-@import "vendor/select2"
-@import "vendor/kalendae"
-@import "vendor/medium-editor"
+// @use "debug"
+@use "vendor/select2"
+@use "vendor/kalendae"
+@use "vendor/medium-editor"
 
-@import "layout"
-@import "tables"
-@import "typography"
-@import "forms"
-@import "dialogs"
-@import "components/*"
+@use "layout"
+@use "tables"
+@use "typography"
+@use "forms"
+@use "dialogs"
+@use "components"
 
-@import "sections/dashboard"
-@import "sections/asset_library"
-@import "sections/search"
-@import "sections/pages"
+@use "sections/dashboard"
+@use "sections/asset_library"
+@use "sections/search"
+@use "sections/pages"

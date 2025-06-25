@@ -1,8 +1,15 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../fonts" as *
+@use "../../../compass/css3" as * 
+@use "sass:color"
+
 .credit-card-detail
-  +box-shadow(0 0.1em 0.3em 0.1em rgba(0,0,0,0.1))
-  +border-radius(0.6em)
-  +background-image(linear-gradient(white, $light-grey + 20))
-  border: 0.1em solid $light-grey - 20
+  box-shadow: 0 0.1em 0.3em 0.1em rgba(0,0,0,0.1)
+  border-radius: 0.6em
+  background-image: linear-gradient(white, color.adjust($light-grey, $lightness: 20%))
+  border: 0.1em solid color.adjust($light-grey, $lightness: -20%)
   text-transform: uppercase
   padding: 1.5em
   width: 17em

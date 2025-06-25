@@ -1,3 +1,9 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../fonts" as *
+@use "../../../compass/css3" as *
+
 .collapsible
   &.collapsed
 
@@ -31,5 +37,5 @@
 .collapsible-toggle
   i
     +transform-origin(center)
-    +transition-property(transform)
-    +transition-duration($duration-base)
+    transition-property: transform
+    transition-duration: $duration-base

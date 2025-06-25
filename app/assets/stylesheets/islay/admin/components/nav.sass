@@ -1,11 +1,17 @@
-
+@use "../config" as *
+@use "../utilities" as *
+@use "../type" as *
+@use "../media" as *
+@use "../../../compass/css3" as *
+@use "sass:color"
 /* -------------------------------------------------------------------------- */
 /* NAVIGATION
 /* -------------------------------------------------------------------------- */
 
+
 .islay-layout-nav
-  +transition-duration($duration-quick)
-  +transition-property(left, transform)
+  transition-duration: $duration-quick
+  transition-property: left, transform
   background-color: $nav-color
   bottom: 0
   color: $nav-foreground-color
@@ -62,9 +68,9 @@
 
   +for-phone
     li
-      +transition-duration($duration-quick)
-      +transition-property(opacity)
-      +transition-delay($duration-quick * 0.5)
+      transition-duration: $duration-quick
+      transition-property: opacity
+      transition-delay: $duration-quick * 0.5
       opacity: 0
 
     a
@@ -129,7 +135,7 @@
 
     &:hover,
     &:focus
-      +text-shadow(0 0.1em 0.05em rgba(#000, 0.5))
+      text-shadow: 0 0.1em 0.05em rgba(#000, 0.5)
       background: $sage-green
       color: #FFF
 
@@ -179,31 +185,28 @@
       margin: 0.4em 0 0 0
       padding: 0
 
-    strong
-
-
 // Main Navigation states
 .islay-main-nav
-  +transition-property(width, left)
-  +transition-duration($duration-quick)
+  transition-property: width, left
+  transition-duration: $duration-quick
 
   // Default state
   .entry strong,
   .islay-global-search input,
   .islay-current-user button
-    +transition-property(opacity)
-    +transition-duration($duration-quick)
-    +opacity(0)
+    transition-property: opacity
+    transition-duration: $duration-quick
+    opacity: 0
 
     +for-large-desktop
-      +opacity(1)
+      opacity: 1
 
     +for-phone
-      +opacity(1)
+      opacity: 1
 
   .islay-global-search
-    +transition-property(background)
-    +transition-duration($duration-quick)
+    transition-property: background
+    transition-duration: $duration-quick
 
   // Open state
   &.open,
@@ -240,9 +243,9 @@
     .current
       background: rgba($sage-green, 0.8)
       &:after
-        +transition-property(right)
-        +transition-duration($duration-quick)
-        border-color: transparent darken($nav-color, 2) transparent transparent
+        transition-property: right
+        transition-duration: $duration-quick
+        border-color: transparent color.adjust($nav-color, $lightness: -2%) transparent transparent
         border-style: solid
         border-width: 0.5em 0.5em 0.5em 0
         content: ''
@@ -255,7 +258,7 @@
 
   li:hover .entry,
   .islay-global-search-results li:hover .search-entry
-    color: $sage-green + 30
+    color: color.adjust($sage-green, $lightness: 30%)
 
   li:hover .current,
   .islay-global-search-results li:hover .current
@@ -275,7 +278,7 @@
     content: ''
     border: 1px solid transparent
     +pos-absolute(2rem, false, 2rem, 0)
-    +box-shadow(0 0 1rem darken($nav-color, 20))
+    box-shadow: 0 0 1rem color.adjust($nav-color, $lightness: -20%)
 
   +for-large-desktop
     left: $nav-width

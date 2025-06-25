@@ -1,6 +1,14 @@
+@use "config" as *
+@use "utilities" as *
+@use "media" as *
+@use "fonts" as *
+@use "compass/css3" as * 
+@use "sass:color"
+  
 /* -------------------------------------------------------------------------- */
 /* FORM
 /* -------------------------------------------------------------------------- */
+
 
 // $border-width: 0.05rem
 // $input-v-padding: 0.5rem
@@ -13,7 +21,7 @@
 
 #islay-form
   #content
-    +box-sizing(border-box)
+    box-sizing: border-box
     width: 100%
     padding-left: $layout-gutter
     padding-right: $layout-gutter
@@ -54,9 +62,6 @@
     + .field-group
       border-top: 0 none
 
-  .field-group
-    .field-group-el-intro
-
   fieldset.member-tree legend,
   label
     color: #606D7B !important
@@ -86,13 +91,13 @@
     &.optional
       &:after
         content: 'Optional'
-        color: lighten($text-color-subtle, 15)
+        color: color.adjust($text-color-subtle, $lightness: 15%)
         display: block
         font-size: 0.7rem
         margin-top: 0.125rem
 
         +for-phone
-          color: lighten($text-color-subtle, 20)
+          color: color.adjust($text-color-subtle, $lightness: 20%)
           display: inline-block
           float: right
           margin-left: 0.5rem
@@ -210,8 +215,8 @@ form
   input[type=number],
   textarea,
   .markdown-editor-canvas
-    +box-sizing(border-box)
-    +border-radius(2px)
+    box-sizing: border-box
+    border-radius: 2px
     background: #FFF
     border: 1px solid #B6B9BC
     float: left
@@ -266,7 +271,7 @@ form
 
   .field
     .input-wrapper
-      +display-flex
+      display: flex
       flex-direction: column
       min-width: 16rem
       max-width: 32rem
@@ -306,7 +311,7 @@ form
 /* ERROR NOTICE
 /* -------------------------------------------------------------------------- */
 .islay-form-errors
-  +box-sizing(border-box)
+  box-sizing: border-box
   padding: 1em 0
   background-color: $error-color
   margin: 1em 0 0.3em 0
@@ -319,7 +324,7 @@ form
     display: none
 
   h3, p
-    +text-shadow(0 0.1rem 0.1rem rgba(#000, 0.5))
+    text-shadow: 0 0.1rem 0.1rem rgba(#000, 0.5)
     color: #FFF
     margin-left: 0!important
 
@@ -383,7 +388,7 @@ $widget-height: 1.1005rem + ($input-v-padding * 2) + ($border-width * 2)
 
 @mixin widget-border-radius($portions: all)
   @if $portions == all
-    +border-radius($widget-border-radius)
+    border-radius: $widget-border-radius
   @else if $portions == left
     +border-left-radius($widget-border-radius)
   @else if $portions == right
@@ -590,7 +595,7 @@ $widget-height: 1.1005rem + ($input-v-padding * 2) + ($border-width * 2)
     display: block
 
   li.selected span
-    +text-shadow(0 0.1em 0 rgba(0,0,0,0.6))
+    text-shadow: 0 0.1em 0 rgba(0,0,0,0.6)
     background-image: url(image-path('islay/admin/checkbox-selected.png'))
 
   .button
@@ -683,14 +688,14 @@ $widget-height: 1.1005rem + ($input-v-padding * 2) + ($border-width * 2)
         vertical-align: -0.15em
 
     &:hover
-      border: 1px solid lighten($link-color, 50)
+      border: 1px solid color.adjust($link-color, $lightness: 50%)
 
 
 /* MULTI-ASSETS & SINGLE ASSET */
 .widget.single_asset,
 .widget.multi_asset
   .choice, .add
-    +border-radius(0.2em)
+    border-radius: 0.2em
 
     +input-border
     background: white
@@ -706,7 +711,7 @@ $widget-height: 1.1005rem + ($input-v-padding * 2) + ($border-width * 2)
       display: block
 
   .remove
-    +border-radius(50%)
+    border-radius: 50%
     background-color: $dark-grey
     display: none
     position: absolute
@@ -844,7 +849,7 @@ $date-time-picker-width: 12rem
   +widget-gradient
   +widget-border-radius
   +input-border
-  +box-sizing(border-box)
+  box-sizing: border-box
   cursor: pointer
   display: inline-block
   float: left
@@ -975,7 +980,7 @@ $date-time-picker-width: 12rem
 
 .field
   .error
-    +text-shadow(0 0.1em 0.1em rgba(#000, 0.75))
+    text-shadow: 0 0.1em 0.1em rgba(#000, 0.75)
     color: white
     padding: $input-v-padding 0.5rem
     float: none
@@ -1003,9 +1008,9 @@ fieldset.member-tree
     font-weight: normal
 
   ul.top
-    +border-radius(0.3em)
+    border-radius: 0.3em
 
-    background: lighten($form-inset-color, 10)
+    background: color.adjust($form-inset-color, $lightness: 10%)
     border: $border-width solid $light-grey
     float: left
     width: 25em
@@ -1015,7 +1020,7 @@ fieldset.member-tree
     width: 25em
 
   li
-    border-top: $border-width solid $light-grey + 15
+    border-top: $border-width solid color.adjust($light-grey, $lightness: 15%)
 
   input
     margin-right: 0.6em

@@ -1,3 +1,7 @@
+@use "../islay/admin/config" as *;
+@use "../islay/admin/fonts" as *;
+@use "sass:math";
+
 $k-control-size: 1.8rem;
 $k-color-today: rgb(226, 119, 60);
 
@@ -186,7 +190,7 @@ $k-color-today: rgb(226, 119, 60);
 .kalendae .k-header span,
 .kalendae .k-days span {
 	float:left;
-	width: (100% / 7);
+	width: math.div(100%, 7);
 	margin: 0;
 }
 

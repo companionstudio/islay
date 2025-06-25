@@ -1,5 +1,10 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../../../compass/css3" as *
+  
 .islay-body-content-container
-  +display-flex
+  display: flex
   flex-direction: column
   min-height: 100vh
   > *:last-child
@@ -8,7 +13,7 @@
   #content,
   #islay-form,
   #islay-form #islay-form
-    +display-flex
+    display: flex
     +flex(1)
     flex-direction: column
 

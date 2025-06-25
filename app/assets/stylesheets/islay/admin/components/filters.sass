@@ -1,18 +1,23 @@
+@use "../config" as *
+@use "../../../compass/typography" as *
+@use "sass:color"
+@use "sass:math"
+  
 /* -------------------------------------------------------------------------- */
 /* FILTERS
 /* Filters listings of records
 /* -------------------------------------------------------------------------- */
 ul.filters,
 ul.sort
-  +display-flex
+  display: flex
   border-top: 1px solid $light-grey
   margin: 0
-  padding: 0 $layout-gutter / 2
+  padding: 0 math.div($layout-gutter, 2)
 
   .filter-label,
   .sort-label,
   li
-    +align-self(center)
+    align-self: center
     display: block
     font-size: 0.7rem
 
@@ -24,7 +29,7 @@ ul.sort
     min-width: 2.5rem
 
   a
-    +border-radius(0.3em)
+    border-radius: 0.3em
     +unstyled-link
     border: 1px solid transparent
     color: $dark-grey
@@ -44,7 +49,7 @@ ul.sort
     &.current,
     &.current:hover,
     &.current:focus
-      background-color: darken($sage-green, 10)
+      background-color: color.adjust($sage-green, $lightness: -10%)
       color: #EEE
       cursor: default
       display: block

@@ -1,3 +1,9 @@
+@use "config" as *
+@use "utilities" as *
+@use "media" as *
+@use "fonts" as *
+@use "compass/css3" as * 
+@use "sass:color"
 
 /* -------------------------------------------------------------------------- */
 /* TABLE
@@ -66,7 +72,7 @@ table
   td.stock,
   th.stock,
   td.number,
-  th.number,
+  th.number
     width: 5rem
 
   th.quantity,
@@ -104,7 +110,7 @@ table
         font-size: 1rem
 
     &:before
-      +opacity(0.85)
+      opacity: 0.85
       font-size: 0.85rem
       font-weight: bold
 
@@ -228,7 +234,7 @@ tr td:first-child
 tr.selected
   td
     background: $selected-background-color
-    border-color: lighten($selected-background-color, 20)!important
+    border-color: color.adjust($selected-background-color, $lightness: 20%)!important
     color: $selected-foreground-color
 
     a
@@ -236,14 +242,14 @@ tr.selected
       color: $selected-foreground-color
 
     .summary
-      color: lighten($selected-background-color, 30)
+      color: color.adjust($selected-background-color, $lightness: 30%)
 
     &.meta
-      color: lighten($selected-background-color, 40)
+      color: color.adjust($selected-background-color, $lightness: 40%)
 
   &:nth-child(odd)
     td
-      background: lighten($selected-background-color, 10)
+      background: color.adjust($selected-background-color, $lightness: 10%)
 
   .boolean:before
     color: rgba(255, 255, 255, 0.6)!important
@@ -282,16 +288,16 @@ tr.child-row
   display: none
 
   input, textarea
-    +transition-property(opacity)
-    +transition-duration(400ms)
-    +transition-delay(100ms)
-    +opacity(0)
+    transition-property: opacity
+    transition-duration: 400ms
+    transition-delay: 100ms
+    opacity: 0
 
   &.child-row-expanded
     display: table-row
 
     input, textarea
-      +opacity(1)
+      opacity: 1
 
 .child-row-toggle
   color: $link-color
@@ -354,7 +360,7 @@ table
 
     tr, th, td,
     tbody
-      +box-sizing(border-box)
+      box-sizing: border-box
       border: none
       display: block
       width: 100%!important

@@ -1,3 +1,8 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../fonts" as *
+@use "../../../compass/css3" as *
 
 #content
   float: left
@@ -6,15 +11,15 @@
   z-index: 1
 
   > *
-    +transition-property(opacity)
-    +transition-duration(400ms)
-    +opacity(0.1)
+    transition-property: opacity
+    transition-duration: 400ms
+    opacity: 0.1
 
     html[data-state=is-ready] &
-      +opacity(1)
+      opacity: 1
 
   &.inset
-    +box-sizing(border-box)
+    box-sizing: border-box
     padding-left: $layout-gutter
     padding-right: $layout-gutter
     width: 100%

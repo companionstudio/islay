@@ -1,3 +1,10 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../fonts" as *
+@use "../type" as *
+@use "../typography" as *
+  
 table.actions-list
   tbody
 
@@ -40,15 +47,15 @@ table.actions-list
         color: #333
 
   .collapsible
-    +transition-property(max-height)
-    +transition-duration($duration-base)
+    transition-property: max-height
+    transition-duration: $duration-base
     max-height: 30rem
 
   td .collapsible > *
-    +transition-property(opacity)
-    +transition-duration($duration-base)
-    +transition-delay($duration-base)
-    +opacity(1)
+    transition-property: opacity
+    transition-duration: $duration-base
+    transition-delay: $duration-base
+    opacity: 1
 
   tr.is-hidden
     td, th
@@ -63,7 +70,7 @@ table.actions-list
     td
       .collapsible
         > *
-          +opacity(0)
+          opacity: 0
 
     form,
     .button-bar

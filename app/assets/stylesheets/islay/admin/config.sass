@@ -2,8 +2,10 @@
 /* Centralised 'skin' config for colors, fonts, effects.
 /* -------------------------------------------------------------------------- */
 
-@import "compass/layout/stretching"
-@import "compass/css3"
+@use "sass:color"
+@use "sass:math"
+@use "compass/layout/stretching"
+@use "compass/css3"
 
 /* -------------------------------------------------------------------------- */
 /* MEASUREMENTS
@@ -16,14 +18,21 @@ $sub-header-height: $ui-single-line-height
 $header-height: $ui-single-line-height
 
 $layout-gutter: 1.5rem
-$layout-gutter-small: $layout-gutter / 2
+$layout-gutter-small: math.div($layout-gutter, 2)
 
 $layout-breadcrumb-height: 2.5rem
 
 $column-count: 12
 $gutter-count: $column-count - 1
 $gutter-width: 2.5%
-$column-width: (100% / $column-count) - $gutter-width
+$column-width: math.div(100%, $column-count) - $gutter-width
+
+$layout-header-height: 6rem
+$nav-color: #333
+$nav-foreground-color: #EEE
+$nav-width: 12rem
+$collapsed-nav-width: 2.5rem
+$expanded-nav-width: $nav-width * 2
 
 /* -------------------------------------------------------------------------- */
 /* COLORS
@@ -59,14 +68,14 @@ $text-color: #222
 $text-color-subtle: #808080
 
 $link-color: #2E56E0
-$link-hover-color: lighten($link-color, 20)
+$link-hover-color: color.adjust($link-color, $lightness: 20%)
 $link-active-color: #AA3E1C
 $link-visited-color: #584BB1
 
-$side-bar-link-color: lighten($link-color, 25)
-$side-bar-link-hover-color: lighten($link-hover-color, 25)
-$side-bar-link-active-color: lighten($link-active-color, 25)
-$side-bar-link-visited-color: lighten($link-visited-color, 25)
+$side-bar-link-color: color.adjust($link-color, $lightness: 25%)
+$side-bar-link-hover-color: color.adjust($link-hover-color, $lightness: 25%)
+$side-bar-link-active-color: color.adjust($link-active-color, $lightness: 25%)
+$side-bar-link-visited-color: color.adjust($link-visited-color, $lightness: 25%)
 
 $tag-color: #FAF5D5
 $tag-border-color: #d8d7ce
@@ -77,7 +86,7 @@ $shadow-color: rgba(0,0,0,0.3)
 $button-text-color: $text-color
 $button-primary-color: #2C5A8D
 $button-secondary-color: $very-light-grey
-$button-positive-color: saturate($sage-green, 0.3)
+$button-positive-color: color.adjust($sage-green, $saturation: 30%)
 $button-negative-color: #C42217
 
 //These are transparent overlays used for various button states.
@@ -119,21 +128,30 @@ $input-v-padding: 0.5rem
 $input-h-padding: 0.75rem
 $field-margin: 1rem
 $field-height: $border-width * 2 + $input-v-padding * 2 + 1rem
-$form-inset-color: $light-grey + 20
+$form-inset-color: color.adjust($light-grey, $lightness: 20%)
 $error-color: #d43d1c
+
+$widget-border-color: #B3BBC3
+$widget-border-radius: 0.2em
+$widget-width: 32rem + ($input-h-padding * 2)
+$widget-height: 1.1005rem + ($input-v-padding * 2) + ($border-width * 2)
+
+%button-reverse
+  background: $button-positive-color
+  color: #FFF
 
 /* -------------------------------------------------------------------------- */
 /* MIXINS
 /* -------------------------------------------------------------------------- */
 
 @mixin islay-text-shadow($offset-x: 1px, $offset-y: 1px, $blur: 1px, $color: $shadow-color)
-  +text-shadow($color $offset-x $offset-y $blur)
+  text-shadow: $color $offset-x $offset-y $blur
 
 @mixin islay-text-engraved($offset: 1px, $opacity: 0.9)
-  +text-shadow(rgba(255, 255, 255, $opacity) $offset $offset 0)
+  text-shadow: rgba(255, 255, 255, $opacity) $offset $offset 0
 
 @mixin islay-text-inset
-  +text-shadow(rgba(0,0,0,0.4) 0 -1px 1px, rgba(255,255,255,0.9) 0 1px 0)
+  text-shadow: rgba(0,0,0,0.4) 0 -1px 1px, rgba(255,255,255,0.9) 0 1px 0
   color:  rgba(0, 0, 0, 0.0)
 
 @mixin hide

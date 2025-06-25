@@ -1,7 +1,14 @@
+@use "../config" as *
+@use "../utilities" as *
+@use "../media" as *
+@use "../fonts" as *
+@use "../type" as *
+@use "sass:color"
+
 #islay-admin-search
   #content h2
     font-size: 2em
-    border-bottom: 0.05em solid $light-grey - 30
+    border-bottom: 0.05em solid color.adjust($light-grey, $lightness: -30%)
     margin-bottom: 0.5em
     padding-bottom: 0.5em
     width: 100%
